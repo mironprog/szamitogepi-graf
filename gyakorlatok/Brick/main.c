@@ -16,6 +16,10 @@ int main(int argc, char* argv[])
 
 	printf("The volume of the cuboid: %lf\n", volume);
 	printf("The surface of the cuboid: %lf\n", surface);
-    printf("%d\n", hascube);
+    if(hascube == 1){
+		printf("It has a square side.\n");
+	}else{
+		printf("It doesn't have a square side.\n");
+	}
 	return 0;
 }
