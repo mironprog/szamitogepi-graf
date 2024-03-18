@@ -1,2 +1,2 @@
 all:
-	gcc main.c -o lines.exe -lmingw32 -lSDL2main -lSDL2
+	gcc src/main.c -o hello_sdl.exe -lmingw32 -lSDL2main -lSDL2

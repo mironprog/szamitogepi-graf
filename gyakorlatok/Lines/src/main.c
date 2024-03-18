@@ -28,15 +28,11 @@ int main(int argc, char* argv[])
 
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
   SDL_RenderClear(renderer);
-  for (i = 0; i < 255; ++i) {
-    SDL_SetRenderDrawColor(renderer, 255, i, 0, SDL_ALPHA_OPAQUE);
-    SDL_RenderDrawLine(renderer, 0, 0, 500, i * 2);
-  }
   SDL_RenderPresent(renderer);
 
-  int x1;
+  int x1 = 400;
+  int y1 = 300;
   int x2;
-  int y1;
   int y2;
 
   need_run = true;
@@ -50,6 +46,18 @@ int main(int argc, char* argv[])
       case SDL_QUIT:
         need_run = false;
         break;
+      case SDL_MOUSEBUTTONUP:
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderClear(renderer);
+
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, SDL_ALPHA_OPAQUE);
+        SDL_GetMouseState(&x2, &y2);
+
+        SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+        SDL_RenderPresent(renderer);
+
+        x1 = x2;
+        y1 = y2;
       }
     }
   }
