@@ -3,6 +3,8 @@
 
 #include <SDL2/SDL.h>
 #include <stdbool.h>
+#include "ship.h"
+#include "missile.h"
 
 typedef struct App
 {
@@ -13,11 +15,11 @@ typedef struct App
 
 int initialize_window(App* app);
 
-void setup();
+void setup(Ship* ship, Missile* missile);
 
-void process_input(App* app);
+void process_input(App* app, Ship* ship, Missile* missile);
 
-void update();
+void update(Missile* missile);
 
 void renderer();
 
